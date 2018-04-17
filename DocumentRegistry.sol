@@ -2,11 +2,11 @@ pragma solidity ^0.4.18;
 
 contract DocumentRegistry {
     mapping (string => uint256) documents;
-    address contractOwner = msg.sender;
+    address Owner = msg.sender;
 
     function add(string hash) public returns (uint256 dateAdded) {
-        require (msg.sender == contractOwner);
-        var timeAdded = block.timestamp;
+        require (msg.sender == Owner);
+        uint timeAdded = block.timestamp;
         documents[hash] = timeAdded;
         return timeAdded;
     }
